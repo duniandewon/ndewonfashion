@@ -1,0 +1,80 @@
+.card {
+  max-width: 25rem;
+
+  &__image {
+    position: relative;
+  }
+
+  &__badges,
+  .add-to-cart {
+    position: absolute;
+    right: 1.5rem;
+  }
+
+  .add-to-cart {
+    bottom: 3rem;
+    right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0 1.1rem;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    outline: none;
+
+    span {
+      position: absolute;
+      right: 1rem;
+      top: 2rem;
+      opacity: 0;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      width: 12rem;
+      border-radius: 8rem;
+
+      span {
+        transition: all 0.4s ease 0.3s;
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__badges {
+    top: 3rem;
+  }
+
+  &__badge + &__badge {
+    margin-left: 0.5rem;
+  }
+
+  &__badge {
+    background: white;
+    border-radius: 8px;
+    padding: 0.2rem 1rem;
+    color: #fff;
+    text-transform: uppercase;
+
+    &--new {
+      background-color: #50e550;
+    }
+
+    &--sale {
+      background-color: #f51167;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+}
