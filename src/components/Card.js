@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Card = ({ img, title, price, sale, _new, center }) => {
+const Card = ({ img, title, price, sale, _new }) => {
   return (
-    <div className='card' style={{ margin: `${center ? '0 auto' : 0}` }}>
+    <div className='card'>
       <div className='card__image'>
         <img src={img} alt={title} />
         <button className='add-to-cart'>
