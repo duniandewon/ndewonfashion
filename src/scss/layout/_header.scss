@@ -1,0 +1,11 @@
+.header {
+  padding-top: $text-large;
+  padding-bottom: $text-large;
+  background-color: #fff;
+
+  .site-logo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $text-large;
+  }
+}

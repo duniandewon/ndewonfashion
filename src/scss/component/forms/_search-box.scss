@@ -1,0 +1,33 @@
+.search-box {
+  position: relative;
+  width: 100%;
+
+  @media screen and (max-width: 991px) {
+    margin-top: 2rem;
+  }
+
+  input,
+  button {
+    font-size: $text-medium;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5rem;
+    outline: none;
+    background-color: $white;
+    font-weight: 300;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}

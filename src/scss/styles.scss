@@ -5,6 +5,11 @@
 @import './base/base';
 
 @import './layout/main';
+@import './layout/header';
+
+@import './component/forms/search-box';
+@import './component/navigations/top-nav';
+@import './component/carts/shopping-cart';
 
 /* Bootstrap scss */
 @import '~bootstrap/scss/functions';
@@ -12,3 +17,5 @@
 @import '~bootstrap/scss/mixins';
 
 @import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/utilities/display';
+@import '~bootstrap/scss/utilities/flex';
