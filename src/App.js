@@ -11,12 +11,15 @@ import Header from './layouts/Header';
 import Main from './layouts/Main';
 import Footer from './layouts/Footer';
 
+import MainNav from './components/navigations/MainNav';
+
 import './scss/styles.scss';
 
 function App() {
   return (
     <Fragment>
       <Header />
+      <MainNav />
       <Main>
         <Switch>
           <Route exact path='/' component={Home} />

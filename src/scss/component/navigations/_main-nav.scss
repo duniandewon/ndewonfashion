@@ -1,0 +1,42 @@
+.navbar {
+  background-color: $black;
+  color: $white;
+  padding-top: $text-large;
+  padding-bottom: $text-large;
+
+  > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav {
+  display: none;
+
+  &__item + &__item {
+    margin-left: $text-normal;
+  }
+
+  &__link {
+    text-transform: uppercase;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  &__toggler {
+    padding: 0.5rem 0.7rem;
+    font-size: $text-large;
+    background-color: transparent;
+    color: $white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 992px) {
+    display: flex;
+  }
+}
