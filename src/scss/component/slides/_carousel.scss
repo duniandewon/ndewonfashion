@@ -1,0 +1,45 @@
+.carousel {
+  position: relative;
+  width: 100%;
+
+  &__nav {
+    position: absolute;
+    bottom: -5rem;
+    font-size: 2rem;
+    color: #a4a4a4;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #a4a4a4;
+    border-radius: 50rem;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    &--prev {
+      left: 30%;
+    }
+
+    &--next {
+      right: 30%;
+    }
+
+    @media screen and (min-width: 768px) {
+      top: 50%;
+      transform: translateY(-50%);
+
+      &--prev {
+        left: -4.8rem;
+      }
+
+      &--next {
+        right: -4.8rem;
+      }
+    }
+  }
+}
+
+.alice-carousel__stage-item {
+  .card {
+    margin: 0 auto;
+  }
+}

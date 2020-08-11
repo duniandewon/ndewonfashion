@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import ImageSlider from '../components/slides/ImageSlider';
+import Section from '../layouts/Section';
+import Card from '../components/Card';
+import Carousel from '../components/slides/Carousel';
 
 const Home = () => {
   return (
@@ -19,6 +22,9 @@ const Home = () => {
           <span>FREE AND FAST SHIPPING</span>
         </div>
       </section>
+      <Section title='latest product'>
+        <Carousel />
+      </Section>
     </Fragment>
   );
 };
