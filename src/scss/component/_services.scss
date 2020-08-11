@@ -1,0 +1,27 @@
+.services {
+  display: flex;
+  flex-direction: column;
+
+  .service {
+    width: 100%;
+    background-color: $white;
+    padding: $text-large 0;
+    text-align: center;
+    font-size: $text-xlarge;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    &:nth-child(even) {
+      background-color: $secondary-color;
+      color: $white;
+    }
+
+    span {
+      margin-left: $text-normal;
+    }
+  }
+
+  @media screen and (min-width: 998px) {
+    flex-direction: row;
+  }
+}
