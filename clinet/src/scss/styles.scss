@@ -10,6 +10,7 @@
 
 @import './component/services';
 @import './component/card';
+@import './component/buttons';
 
 @import './component/forms/search-box';
 
@@ -19,6 +20,7 @@
 @import './component/carts/shopping-cart';
 
 @import './component/slides/carousel';
+@import './component/slides/image-slider';
 
 /* Alice carousel */
 @import 'react-alice-carousel/lib/scss/alice-carousel.scss';
