@@ -6,14 +6,19 @@
     position: absolute;
     bottom: -5rem;
     font-size: 2rem;
-    color: #a4a4a4;
+    color: darken($white, 35%);
     width: 4rem;
     height: 4rem;
-    border: 2px solid #a4a4a4;
+    border: 2px solid darken($white, 35%);
     border-radius: 50rem;
     background-color: transparent;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+      border-color: $secondary-color;
+      color: $secondary-color;
+    }
 
     &--prev {
       left: 30%;
