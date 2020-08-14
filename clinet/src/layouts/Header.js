@@ -18,7 +18,7 @@ const Header = () => {
               <h1 className='site-logo'>ndewonfashion</h1>
             </Link>
           </Col>
-          <Col sm={12} lg={7}>
+          <Col sm={12} lg={8}>
             <SearchBox />
           </Col>
           <Col

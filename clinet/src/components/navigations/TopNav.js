@@ -6,13 +6,13 @@ const TopNav = () => {
     <div className='top-nav'>
       <Link className='top-nav__item' to='/login'>
         <i className='fas fa-user'></i>
-        <span>Login or create account</span>
+        <span>Login</span>
       </Link>
       <Link className='top-nav__item' to='/cart'>
         <div className='shopping-cart'>
-          <i class='fas fa-shopping-bag'></i>
+          <i className='fas fa-shopping-bag'></i>
           <p className='cart-amount'>0</p>
-          <span>Shopping cart</span>
+          <span>Cart</span>
         </div>
       </Link>
     </div>
