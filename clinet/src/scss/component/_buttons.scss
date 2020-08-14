@@ -1,0 +1,16 @@
+.btn {
+  padding: 1.2rem 5rem;
+  text-transform: uppercase;
+  border-radius: 8rem;
+  border: none;
+  cursor: pointer;
+
+  &__primary {
+    color: $black;
+    background-color: $main-color;
+
+    &:hover {
+      background-color: lighten($main-color, 15%);
+    }
+  }
+}
