@@ -13,4 +13,18 @@
       background-color: lighten($main-color, 15%);
     }
   }
+
+  &__link {
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: $secondary-color;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: $main-color;
+    }
+  }
 }
