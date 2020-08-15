@@ -46,6 +46,7 @@ module.exports = {
       name,
       description,
       price,
+      image,
       category,
       gender,
       sizes,
