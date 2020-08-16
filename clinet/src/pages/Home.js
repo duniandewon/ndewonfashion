@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     loadUser();
-  });
+  }, []);
 
   return (
     <Fragment>
