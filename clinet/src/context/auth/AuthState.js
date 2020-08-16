@@ -9,6 +9,7 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
+  SET_LOADING,
 } from '../types';
 
 export const authContext = createContext();
@@ -25,6 +26,7 @@ export const AuthState = ({ children }) => {
 
   const loadUser = async () => {
     try {
+      setLoading();
       const res = await axios.get('/api/auth');
 
       dispatch({ type: USER_LOADED, payload: res.data });
@@ -67,7 +69,7 @@ export const AuthState = ({ children }) => {
     }
   };
 
-  const setLoading = () => console.log('set loading');
+  const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
     <authContext.Provider

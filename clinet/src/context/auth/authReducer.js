@@ -7,6 +7,7 @@ import {
   AUTH_ERROR,
   LOGOUT,
   USER_LOADED,
+  SET_LOADING,
 } from '../types';
 
 export default (state, action) => {
@@ -51,6 +52,12 @@ export default (state, action) => {
       return {
         ...state,
         error: null,
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     default:
