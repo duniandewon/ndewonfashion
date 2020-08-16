@@ -1,10 +1,29 @@
-import React, { Fragment } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { authContext } from '../context/auth/AuthState';
 
-const Login = () => {
+import LoginForm from '../components/forms/LoginForm';
+import RegisterForm from '../components/forms/RegisterForm';
+
+const Login = ({ history }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const { isAuthenticated, error } = useContext(authContext);
+
+  useEffect(() => {
+    // loadUser();
+    if (isAuthenticated && !error) {
+      history.goBack();
+    }
+
+    // eslint-disable-next-line
+  }, [isAuthenticated, history]);
+
   return (
-    <Fragment>
-      <h1>Login</h1>
-    </Fragment>
+    <div className='auth__flip'>
+      <div className={`auth__container ${isFlipped ? 'is-flipped' : ''}`}>
+        <RegisterForm setIsFlipped={setIsFlipped} />
+        <LoginForm setIsFlipped={setIsFlipped} />
+      </div>
+    </div>
   );
 };
 
