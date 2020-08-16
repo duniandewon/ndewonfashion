@@ -12,6 +12,7 @@ import Main from './layouts/Main';
 import Footer from './layouts/Footer';
 
 import MainNav from './components/navigations/MainNav';
+import LoadingSpinner from './layouts/LoadingSpinner';
 
 import './scss/styles.scss';
 
@@ -20,6 +21,7 @@ function App() {
     <Fragment>
       <Header />
       <MainNav />
+      <LoadingSpinner />
       <Main>
         <Switch>
           <Route exact path='/' component={Home} />
