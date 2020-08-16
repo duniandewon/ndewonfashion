@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { authContext } from '../context/auth/AuthState';
 
 import Section from '../layouts/Section';
 
@@ -6,6 +7,12 @@ import ImageSlider from '../components/slides/ImageSlider';
 import Carousel from '../components/slides/Carousel';
 
 const Home = () => {
+  const { loadUser } = useContext(authContext);
+
+  useEffect(() => {
+    loadUser();
+  });
+
   return (
     <Fragment>
       <ImageSlider />

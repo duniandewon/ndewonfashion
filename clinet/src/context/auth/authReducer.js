@@ -6,11 +6,13 @@ import {
   CLEAR_ERRORS,
   AUTH_ERROR,
   LOGOUT,
+  USER_LOADED,
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
+    case USER_LOADED:
       return {
         ...state,
         user: action.payload,

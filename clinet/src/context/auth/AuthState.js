@@ -7,6 +7,8 @@ import {
   LOGIN_FAIL,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  USER_LOADED,
+  AUTH_ERROR,
 } from '../types';
 
 export const authContext = createContext();
@@ -21,7 +23,15 @@ export const AuthState = ({ children }) => {
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  const loadUser = async () => console.log('load user');
+  const loadUser = async () => {
+    try {
+      const res = await axios.get('/api/auth');
+
+      dispatch({ type: USER_LOADED, payload: res.data });
+    } catch (error) {
+      dispatch({ type: AUTH_ERROR, payload: error.response.data.msg });
+    }
+  };
 
   const registerUser = async (formData) => {
     const config = {

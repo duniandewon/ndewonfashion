@@ -6,10 +6,10 @@ import RegisterForm from '../components/forms/RegisterForm';
 
 const Login = ({ history }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const { isAuthenticated, error } = useContext(authContext);
+  const { isAuthenticated, error, loadUser } = useContext(authContext);
 
   useEffect(() => {
-    // loadUser();
+    loadUser();
     if (isAuthenticated && !error) {
       history.goBack();
     }
