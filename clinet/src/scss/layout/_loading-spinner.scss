@@ -10,10 +10,6 @@
   font-size: 3rem;
   text-transform: uppercase;
   z-index: 1;
-  display: none;
+  display: grid;
   place-items: center;
-
-  &.active {
-    display: grid;
-  }
 }
