@@ -17,8 +17,13 @@ const MainNav = () => {
             </NavLink>
           </li>
           <li className='nav__item'>
-            <NavLink to='/shop' className='nav__link'>
-              shop
+            <NavLink to='/women' className='nav__link'>
+              women
+            </NavLink>
+          </li>
+          <li className='nav__item'>
+            <NavLink to='/men' className='nav__link'>
+              men
             </NavLink>
           </li>
           <li className='nav__item'>
