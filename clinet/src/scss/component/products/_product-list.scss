@@ -1,9 +1,14 @@
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   .card {
     margin-bottom: $text-xlarge;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 545px) {
+    justify-content: space-between;
   }
 }
