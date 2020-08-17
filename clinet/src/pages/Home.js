@@ -1,16 +1,21 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+
 import { authContext } from '../context/auth/AuthState';
+import { productContext } from '../context/products/ProductsState';
 
 import Section from '../layouts/Section';
 
 import ImageSlider from '../components/slides/ImageSlider';
 import Carousel from '../components/slides/Carousel';
+import ProductList from '../components/products/ProductList';
 
 const Home = () => {
   const { loadUser } = useContext(authContext);
+  const { getProducts } = useContext(productContext);
 
   useEffect(() => {
     loadUser();
+    getProducts();
   }, []);
 
   return (
@@ -32,6 +37,9 @@ const Home = () => {
       </section>
       <Section title='latest product'>
         <Carousel />
+      </Section>
+      <Section title='Our top selling products'>
+        <ProductList />
       </Section>
     </Fragment>
   );
