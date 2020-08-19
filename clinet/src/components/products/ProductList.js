@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
-import { productContext } from '../../context/products/ProductsState';
+import React from 'react';
 
-import Card from '../Card';
+import ProductItem from './ProductItem';
 
-const ProductList = () => {
-  const { products } = useContext(productContext);
+const ProductList = ({ products }) => {
   return (
     <div className='product-list'>
       {products &&
-        products.map(({ image, name, price }) => (
-          <Card img={image[0]} title={name} price={price} />
+        products.map((product) => (
+          <ProductItem product={product} key={product._id} />
         ))}
     </div>
   );
