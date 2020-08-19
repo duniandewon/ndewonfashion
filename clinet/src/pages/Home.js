@@ -11,11 +11,13 @@ import ProductList from '../components/products/ProductList';
 
 const Home = () => {
   const { loadUser } = useContext(authContext);
-  const { getProducts } = useContext(productContext);
+  const { getProducts, products } = useContext(productContext);
 
   useEffect(() => {
     loadUser();
     getProducts();
+
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -39,7 +41,7 @@ const Home = () => {
         <Carousel />
       </Section>
       <Section title='Our top selling products'>
-        <ProductList />
+        <ProductList products={products} />
       </Section>
     </Fragment>
   );
