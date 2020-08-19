@@ -1,9 +1,38 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { useRouteMatch, Switch, Route } from 'react-router-dom';
+
+import { authContext } from '../context/auth/AuthState';
+import { productContext } from '../context/products/ProductsState';
+
+import ProductList from '../components/products/ProductList';
+import ProductCategory from '../components/products/ProductCategory';
 
 const Shop = () => {
+  const { loadUser } = useContext(authContext);
+  const { getProducts, products } = useContext(productContext);
+  let { path } = useRouteMatch();
+
+  const prodGender = path.split('/')[1];
+  const prodList =
+    products && products.filter((product) => product.gender === prodGender);
+
+  useEffect(() => {
+    loadUser();
+    getProducts();
+
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Fragment>
-      <h1>Shop</h1>
+      <Switch>
+        <Route exact path={`${path}`}>
+          <ProductList products={prodList} />
+        </Route>
+        <Route path={`${path}/:prod_category`}>
+          <ProductCategory />
+        </Route>
+      </Switch>
     </Fragment>
   );
 };
