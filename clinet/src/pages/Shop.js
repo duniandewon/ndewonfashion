@@ -1,11 +1,17 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import { useRouteMatch, Switch, Route } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { useRouteMatch, Switch, Route, useLocation } from 'react-router-dom';
 
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
 
 import ProductList from '../components/products/ProductList';
 import ProductCategory from '../components/products/ProductCategory';
+
+import Sidebar from '../layouts/Sidebar';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 const Shop = () => {
   const { loadUser } = useContext(authContext);
@@ -16,24 +22,37 @@ const Shop = () => {
   const prodList =
     products && products.filter((product) => product.gender === prodGender);
 
+  const location = useLocation();
+
   useEffect(() => {
     loadUser();
     getProducts();
 
     // eslint-disable-next-line
-  }, []);
+  }, [location.search]);
 
   return (
-    <Fragment>
-      <Switch>
-        <Route exact path={`${path}`}>
-          <ProductList products={prodList} />
-        </Route>
-        <Route path={`${path}/:prod_category`}>
-          <ProductCategory />
-        </Route>
-      </Switch>
-    </Fragment>
+    <Container fluid>
+      <Row>
+        <Col
+          xs={{ order: 'last' }}
+          lg={{ order: 'first', span: '3' }}
+          className='py-5'
+        >
+          <Sidebar />
+        </Col>
+        <Col lg={9} className='py-5'>
+          <Switch>
+            <Route exact path={`${path}`}>
+              <ProductList products={prodList} />
+            </Route>
+            <Route path={`${path}/:prod_category`}>
+              <ProductCategory />
+            </Route>
+          </Switch>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
