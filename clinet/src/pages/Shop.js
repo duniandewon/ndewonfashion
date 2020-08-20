@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useRouteMatch, Switch, Route, useLocation } from 'react-router-dom';
+import { useRouteMatch, Switch, Route } from 'react-router-dom';
 
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
@@ -22,14 +22,12 @@ const Shop = () => {
   const prodList =
     products && products.filter((product) => product.gender === prodGender);
 
-  const location = useLocation();
-
   useEffect(() => {
     loadUser();
     getProducts();
 
     // eslint-disable-next-line
-  }, [location.search]);
+  }, []);
 
   return (
     <Container fluid>
