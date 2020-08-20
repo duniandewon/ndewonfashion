@@ -8,6 +8,7 @@
 @import './layout/header';
 @import './layout/section';
 @import './layout/loading-spinner';
+@import './layout/sidebar';
 
 @import './component/services';
 @import './component/card';
@@ -19,6 +20,7 @@
 
 @import './component/navigations/top-nav';
 @import './component/navigations/main-nav';
+@import './component/navigations/side-nav';
 
 @import './component/carts/shopping-cart';
 
@@ -26,6 +28,7 @@
 @import './component/slides/image-slider';
 
 @import './component/products/product-list';
+@import './component/products/product-filters';
 
 /* Alice carousel */
 @import 'react-alice-carousel/lib/scss/alice-carousel.scss';
