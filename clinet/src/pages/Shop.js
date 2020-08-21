@@ -4,8 +4,9 @@ import { useRouteMatch, Switch, Route } from 'react-router-dom';
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
 
+import ProductCategory from './ProductCategory';
+
 import ProductList from '../components/products/ProductList';
-import ProductCategory from '../components/products/ProductCategory';
 
 import Sidebar from '../layouts/Sidebar';
 
