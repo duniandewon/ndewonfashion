@@ -1,0 +1,19 @@
+.page {
+  &__main {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 992px) {
+      flex-direction: row;
+
+      &--left {
+        width: 40%;
+      }
+
+      &--right {
+        width: 60%;
+        padding: 0 2rem;
+      }
+    }
+  }
+}

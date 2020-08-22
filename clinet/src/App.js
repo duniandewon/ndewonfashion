@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Contact from './pages/Contact';
+import Product from './pages/Product';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/contact' component={Contact} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <Route path='/:prod_id' component={Product} />
         </Switch>
       </Main>
       <Footer />
