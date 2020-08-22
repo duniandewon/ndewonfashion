@@ -31,8 +31,8 @@ export const ProductsState = ({ children }) => {
     }
   };
 
-  const getProduct = (product) =>
-    dispatch({ type: GET_PRODUCT, payload: product });
+  const getProduct = (productId) =>
+    dispatch({ type: GET_PRODUCT, payload: productId });
 
   const setLoading = () => dispatch({ type: SET_LOADING });
 

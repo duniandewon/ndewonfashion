@@ -11,6 +11,7 @@ export default (state, action) => {
       return {
         ...state,
         products: action.payload,
+        product: null,
         loading: false,
       };
 
@@ -25,7 +26,9 @@ export default (state, action) => {
     case GET_PRODUCT:
       return {
         ...state,
-        product: action.payload,
+        product: state.products.find(
+          (product) => product._id === action.payload
+        ),
         loading: false,
       };
 
