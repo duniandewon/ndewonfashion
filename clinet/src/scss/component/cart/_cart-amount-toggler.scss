@@ -1,0 +1,17 @@
+.cart__amount-toggler {
+  max-width: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid $main-color;
+  border-radius: 5rem;
+
+  button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: $text-large;
+    cursor: pointer;
+  }
+}
