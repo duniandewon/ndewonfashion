@@ -11,4 +11,11 @@ export const GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS';
 export const GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL';
 export const GET_PRODUCT = 'GET_PRODUCT';
 
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const TOGGLE_AMOUNT = 'TOGGLE_AMOUNT';
+export const GET_SUBTOTALS = 'GET_SUBTOTALS';
+export const SET_SHIPPING = 'SET_SHIPPING';
+export const CLEAR_CART = 'CLEAR_CART';
+
 export const SET_LOADING = 'SET_LOADING';

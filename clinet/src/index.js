@@ -6,14 +6,17 @@ import App from './App';
 
 import { AuthState } from './context/auth/AuthState';
 import { ProductsState } from './context/products/ProductsState';
+import { CartState } from './context/cart/CartState';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthState>
       <ProductsState>
-        <Router>
-          <App />
-        </Router>
+        <CartState>
+          <Router>
+            <App />
+          </Router>
+        </CartState>
       </ProductsState>
     </AuthState>
   </React.StrictMode>,
