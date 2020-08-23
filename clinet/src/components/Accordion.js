@@ -5,7 +5,7 @@ const Accordion = ({ titles, children, classes }) => {
   return (
     <Fragment>
       {titles.map((title, index) => (
-        <div className='accordion'>
+        <div className='accordion' key={title}>
           <input type='checkbox' name='accordion' id={title} />
           <label className={`accordion__title ${classes}`} htmlFor={title}>
             {title}
