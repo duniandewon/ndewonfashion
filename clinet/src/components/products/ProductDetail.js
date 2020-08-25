@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+
+import { cartContext } from '../../context/cart/CartState';
 
 import Accordion from '../Accordion';
 import CartAmountToggler from '../cart/CartAmountToggler';
 
 const ProductDetail = ({ product }) => {
   const [chosenSize, setChosenSize] = useState('');
-  const [amount, setAmount] = useState(1);
+  const [count, setCount] = useState(1);
 
-  const toggleAmount = (toggle) => {
+  const { items, addToCart, toggleAmount, getSubtotals } = useContext(
+    cartContext
+  );
+
+  const ToggleCount = (toggle) => {
     if (toggle === 'inc') {
-      setAmount((amnt) => (amnt += 1));
+      setCount((count) => (count += 1));
     } else {
-      setAmount((amnt) => (amnt -= 1));
+      setCount((count) => (count -= 1));
     }
   };
 
-  const addToCart = () => {
+  const onClick = () => {
+    const inCart = items.find(
+      (item) => item._id === product._id && item.chosenSize === chosenSize
+    );
+
     if (!chosenSize) {
       return alert('Please select a size');
     }
 
-    console.log({ ...product, amount, chosenSize });
+    if (inCart) {
+      return toggleAmount({ ...product, count, chosenSize });
+    }
+
+    return addToCart({ ...product, count, chosenSize });
   };
+
+  useEffect(() => {
+    getSubtotals();
+  }, [items]);
 
   return (
     <main className='page__main mb-5'>
@@ -52,9 +70,9 @@ const ProductDetail = ({ product }) => {
         </div>
         <div className='product__amount'>
           <span>amount:</span>
-          <CartAmountToggler amount={amount} toggleAmount={toggleAmount} />
+          <CartAmountToggler amount={count} toggleAmount={ToggleCount} />
         </div>
-        <button className='btn btn__primary my-5' onClick={addToCart}>
+        <button className='btn btn__primary my-5' onClick={onClick}>
           Add to cart
         </button>
         <Accordion

@@ -15,7 +15,7 @@ export const cartContext = createContext();
 
 export const CartState = ({ children }) => {
   const initialState = {
-    items: null,
+    items: [],
     subtotal: 0,
     amount: 0,
     shippingAddress: '',
@@ -23,13 +23,15 @@ export const CartState = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addToCart = (product) => console.log('add to cart');
+  const addToCart = (product) =>
+    dispatch({ type: ADD_TO_CART, payload: product });
 
   const removeFromCart = (id) => console.log('remove from cart');
 
-  const toggleAmount = (id, toggle) => console.log('toggle amount');
+  const toggleAmount = (product, toggle) =>
+    dispatch({ type: TOGGLE_AMOUNT, payload: { product, toggle } });
 
-  const getSubtotals = () => console.log('get subtotals');
+  const getSubtotals = () => dispatch({ type: GET_SUBTOTALS });
 
   const setShippingAddress = (address) => console.log('set shipping');
 
