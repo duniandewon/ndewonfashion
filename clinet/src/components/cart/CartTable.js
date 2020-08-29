@@ -5,7 +5,21 @@ import { cartContext } from '../../context/cart/CartState';
 import CartAmountToggler from './CartAmountToggler';
 
 const CartTable = ({ items }) => {
-  const { toggleAmount } = useContext(cartContext);
+  const { toggleAmount, removeFromCart } = useContext(cartContext);
+
+  const toggleCartAmount = (e, item) => {
+    if (item.count === 1 && e.target.innerText === '-') {
+      removeFromCart(item);
+    }
+
+    if (e.target.innerText === '+') {
+      toggleAmount(item, 'inc');
+    }
+
+    if (e.target.innerText === '-') {
+      toggleAmount(item, 'dec');
+    }
+  };
 
   const cartItems = items.map((item) => (
     <tr key={item.chosenSize} className='cart__items'>
@@ -16,13 +30,7 @@ const CartTable = ({ items }) => {
       <td>
         <CartAmountToggler
           amount={item.count}
-          toggleAmount={(e) => {
-            if (e.target.innerText === '+') {
-              toggleAmount(item, 'inc');
-            } else {
-              toggleAmount(item, 'dec');
-            }
-          }}
+          toggleAmount={(e) => toggleCartAmount(e, item)}
         />
       </td>
       <td style={{ textAlign: 'right' }}>{item.chosenSize}</td>

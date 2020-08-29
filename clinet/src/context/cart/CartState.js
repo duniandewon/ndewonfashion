@@ -26,7 +26,8 @@ export const CartState = ({ children }) => {
   const addToCart = (product) =>
     dispatch({ type: ADD_TO_CART, payload: product });
 
-  const removeFromCart = (id) => console.log('remove from cart');
+  const removeFromCart = (product) =>
+    dispatch({ type: REMOVE_FROM_CART, payload: product });
 
   const toggleAmount = (product, toggle) =>
     dispatch({ type: TOGGLE_AMOUNT, payload: { product, toggle } });

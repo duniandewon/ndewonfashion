@@ -1,4 +1,9 @@
-import { ADD_TO_CART, TOGGLE_AMOUNT, GET_SUBTOTALS } from '../types';
+import {
+  ADD_TO_CART,
+  TOGGLE_AMOUNT,
+  GET_SUBTOTALS,
+  REMOVE_FROM_CART,
+} from '../types';
 
 const updateCart = (items, product) =>
   items.map((item) => {
@@ -40,6 +45,16 @@ export default (state, action) => {
           items: toggleCartAmount(state.items, product, toggle),
         };
       }
+
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        items: state.items.filter(
+          (item) =>
+            item._id !== action.payload._id &&
+            item.chosenSize === action.payload.chosenSize
+        ),
+      };
 
     case GET_SUBTOTALS:
       const { subtotal, amount } = state.items.reduce(
