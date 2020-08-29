@@ -13,11 +13,13 @@ const ProductDetail = ({ product }) => {
     cartContext
   );
 
-  const ToggleCount = (toggle) => {
-    if (toggle === 'inc') {
-      setCount((count) => (count += 1));
-    } else {
+  const ToggleCount = (e) => {
+    if (e.target.textContent === '-' && count > 1) {
       setCount((count) => (count -= 1));
+    }
+
+    if (e.target.textContent === '+') {
+      setCount((count) => (count += 1));
     }
   };
 
