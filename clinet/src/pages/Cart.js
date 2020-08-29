@@ -17,7 +17,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Cart = () => {
-  const { loadUser } = useContext(authContext);
+  const { loadUser, user } = useContext(authContext);
   const { getProducts, products } = useContext(productContext);
   const { items, getSubtotals, subtotal } = useContext(cartContext);
 
@@ -49,10 +49,10 @@ const Cart = () => {
             </Col>
             <Col xs={12} lg={4}>
               <Link
-                to='/checkout'
+                to={user ? '/checkout' : '/login'}
                 className='btn btn__primary btn__block my-5 my-lg-0'
               >
-                check out
+                {user ? 'check out' : 'login'}
               </Link>
               <Link to='/' className='btn btn__secondary btn__block my-5'>
                 continue shopping
