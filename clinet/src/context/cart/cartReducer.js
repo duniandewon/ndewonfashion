@@ -10,7 +10,7 @@ const updateCart = (items, product) =>
 
 const toggleCartAmount = (items, product, toggle) =>
   items.map((item) => {
-    if (item._id === product._id) {
+    if (item._id === product._id && item.chosenSize === product.chosenSize) {
       if (toggle === 'inc') return { ...item, count: item.count + 1 };
 
       if (toggle === 'dec') return { ...item, count: item.count - 1 };
