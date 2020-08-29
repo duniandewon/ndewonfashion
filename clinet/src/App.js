@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Contact from './pages/Contact';
 import Product from './pages/Product';
+import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/women' component={Shop} />
           <Route path='/men' component={Shop} />
           <Route path='/contact' component={Contact} />
+          <Route path='/cart' component={Cart} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/:prod_id' component={Product} />
