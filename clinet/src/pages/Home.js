@@ -3,6 +3,8 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
 
+import getRandomProducts from '../utils/getRandomProducts';
+
 import Section from '../layouts/Section';
 
 import ImageSlider from '../components/slides/ImageSlider';
@@ -41,7 +43,11 @@ const Home = () => {
         <Carousel />
       </Section>
       <Section title='Our top selling products'>
-        <ProductList products={products} />
+        <ProductList
+          products={
+            products && getRandomProducts(products, products.length - 1)
+          }
+        />
       </Section>
     </Fragment>
   );
