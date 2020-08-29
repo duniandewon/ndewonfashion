@@ -48,7 +48,10 @@ const Cart = () => {
               </div>
             </Col>
             <Col xs={12} lg={4}>
-              <Link to='/checkout' className='btn btn__primary btn__block'>
+              <Link
+                to='/checkout'
+                className='btn btn__primary btn__block my-5 my-lg-0'
+              >
                 check out
               </Link>
               <Link to='/' className='btn btn__secondary btn__block my-5'>
