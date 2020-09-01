@@ -1,0 +1,55 @@
+.mini-cart-container {
+  background-color: darken($color: $white, $amount: 20%);
+  border-radius: 8px;
+  padding: $text-xlarge;
+
+  h2 {
+    font-size: $text-xlarge;
+    text-transform: capitalize;
+    margin-bottom: $text-large;
+  }
+
+  .receipt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: $text-large;
+
+    &__label {
+      font-weight: 400;
+      text-transform: uppercase;
+      width: 50%;
+
+      &--total {
+        font-size: $text-xlarge;
+        margin-top: $text-large;
+      }
+    }
+
+    &__price--total {
+      font-size: $text-xlarge;
+      margin-top: $text-large;
+    }
+  }
+}
+
+.mini-cart {
+  &__item {
+    display: flex;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item + &__item {
+    margin-top: $text-large;
+  }
+
+  &__image {
+    width: 8rem;
+    margin-right: $text-small;
+  }
+}

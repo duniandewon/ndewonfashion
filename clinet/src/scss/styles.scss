@@ -36,6 +36,9 @@
 
 @import './component/cart/cart';
 @import './component/cart/cart-amount-toggler';
+@import './component/cart/mini-cart';
+
+@import './component/checkout/checkout';
 
 /* Alice carousel */
 @import 'react-alice-carousel/lib/scss/alice-carousel.scss';
