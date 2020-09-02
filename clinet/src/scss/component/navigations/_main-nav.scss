@@ -1,8 +1,6 @@
 .navbar {
   background-color: $black;
   color: $white;
-  padding-top: $text-large;
-  padding-bottom: $text-large;
 
   > .container {
     display: flex;
@@ -16,6 +14,25 @@
 
   &__item + &__item {
     margin-left: $text-normal;
+  }
+
+  &__item {
+    padding-top: $text-large;
+    padding-bottom: $text-large;
+
+    span {
+      margin-left: 1rem;
+    }
+
+    &.dropdown {
+      position: relative;
+
+      &:hover {
+        .dropdown__content {
+          display: block;
+        }
+      }
+    }
   }
 
   &__link {

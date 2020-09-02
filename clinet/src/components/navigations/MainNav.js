@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TopNav from './TopNav';
 
 const MainNav = () => {
@@ -12,29 +12,29 @@ const MainNav = () => {
         </button>
         <ul className='nav'>
           <li className='nav__item'>
-            <NavLink to='/' className='nav__link'>
+            <Link to='/' className='nav__link'>
               home
-            </NavLink>
+            </Link>
           </li>
           <li className='nav__item'>
-            <NavLink to='/women' className='nav__link'>
+            <Link to='/women' className='nav__link'>
               women
-            </NavLink>
+            </Link>
           </li>
           <li className='nav__item'>
-            <NavLink to='/men' className='nav__link'>
+            <Link to='/men' className='nav__link'>
               men
-            </NavLink>
+            </Link>
           </li>
           <li className='nav__item'>
-            <NavLink to='/blog' className='nav__link'>
+            <Link to='/blog' className='nav__link'>
               blog
-            </NavLink>
+            </Link>
           </li>
           <li className='nav__item'>
-            <NavLink to='/contact' className='nav__link'>
+            <Link to='/contact' className='nav__link'>
               contact
-            </NavLink>
+            </Link>
           </li>
         </ul>
         <div className='d-lg-none'>

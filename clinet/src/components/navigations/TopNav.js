@@ -4,31 +4,56 @@ import { Link } from 'react-router-dom';
 import { authContext } from '../../context/auth/AuthState';
 import { cartContext } from '../../context/cart/CartState';
 
+import NavDropdown from '../navigations/NavDropdown';
+
 const TopNav = () => {
   const { user } = useContext(authContext);
   const { amount } = useContext(cartContext);
 
+  const dropdown = () => (
+    <NavDropdown>
+      <ul>
+        <li className='dropdown__item'>
+          <Link to='/account'>Account</Link>
+        </li>
+        <li className='dropdown__item'>
+          <Link to='/orders'>Orders</Link>
+        </li>
+        <li className='dropdown__item'>
+          <Link to='/logout'>Logout</Link>
+        </li>
+      </ul>
+    </NavDropdown>
+  );
+
   return (
-    <div className='top-nav'>
+    <ul className='top-nav'>
       {user ? (
-        <Link className='top-nav__item' to='/profile'>
-          <i className='fas fa-user'></i>
-          <span>account</span>
-        </Link>
+        <li className='nav__item dropdown'>
+          <Link to='/profile'>
+            <i className='fas fa-user'></i>
+            <span>account</span>
+          </Link>
+          {dropdown()}
+        </li>
       ) : (
-        <Link className='top-nav__item' to='/login'>
-          <i className='fas fa-user'></i>
-          <span>Login</span>
-        </Link>
+        <li className='nav__item'>
+          <Link to='/login'>
+            <i className='fas fa-user'></i>
+            <span>Login</span>
+          </Link>
+        </li>
       )}
-      <Link className='top-nav__item' to='/cart'>
-        <div className='shopping-cart'>
-          <i className='fas fa-shopping-bag'></i>
-          <p className='cart-amount'>{amount}</p>
-          <span>Cart</span>
-        </div>
-      </Link>
-    </div>
+      <li className='nav__item'>
+        <Link to='/cart'>
+          <div className='shopping-cart'>
+            <i className='fas fa-shopping-bag'></i>
+            <p className='cart-amount'>{amount}</p>
+            <span>Cart</span>
+          </div>
+        </Link>
+      </li>
+    </ul>
   );
 };
 

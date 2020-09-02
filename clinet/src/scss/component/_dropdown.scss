@@ -1,0 +1,28 @@
+.dropdown {
+  &__item + &__item {
+    margin-top: 2rem;
+  }
+
+  &__item {
+    a {
+      display: block;
+      padding: 1.5rem 0 1.5rem 2rem;
+      text-transform: capitalize;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  &__content {
+    width: 25rem;
+    position: absolute;
+    top: 6.4rem;
+    left: 0;
+    background-color: #fff;
+    overflow: visible;
+    display: none;
+    z-index: 1;
+  }
+}

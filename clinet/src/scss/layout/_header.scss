@@ -1,11 +1,18 @@
 .header {
-  padding-top: $text-large;
-  padding-bottom: $text-large;
   background-color: #fff;
+
+  > .container .row {
+    display: flex;
+    align-items: center;
+  }
 
   .site-logo {
     text-align: center;
     text-transform: uppercase;
     font-size: $text-large;
+
+    @media screen and (max-width: 991px) {
+      margin-top: 2rem;
+    }
   }
 }
