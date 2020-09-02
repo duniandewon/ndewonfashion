@@ -8,7 +8,6 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import CheckOut from './pages/CheckOut';
 import Login from './pages/Login';
-import Register from './pages/Register';
 
 import Header from './layouts/Header';
 import Main from './layouts/Main';
@@ -20,6 +19,57 @@ import LoadingSpinner from './layouts/LoadingSpinner';
 import './scss/styles.scss';
 
 function App() {
+  const routes = [
+    {
+      id: 'home',
+      path: '/',
+      component: Home,
+      exact: true,
+    },
+    {
+      id: 'shopWomen',
+      path: '/women',
+      component: Shop,
+      exact: false,
+    },
+    {
+      id: 'shopMen',
+      path: '/men',
+      component: Shop,
+      exact: false,
+    },
+    {
+      id: 'contact',
+      path: '/contact',
+      component: Contact,
+      exact: false,
+    },
+    {
+      id: 'cart',
+      path: '/cart',
+      component: Cart,
+      exact: false,
+    },
+    {
+      id: 'checkout',
+      path: '/checkout',
+      component: CheckOut,
+      exact: false,
+    },
+    {
+      id: 'login',
+      path: '/login',
+      component: Login,
+      exact: false,
+    },
+    {
+      id: 'product',
+      path: '/:prod_id',
+      component: Product,
+      exact: false,
+    },
+  ];
+
   return (
     <Fragment>
       <Header />
@@ -27,15 +77,9 @@ function App() {
       <LoadingSpinner />
       <Main>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/women' component={Shop} />
-          <Route path='/men' component={Shop} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/cart' component={Cart} />
-          <Route path='/checkout' component={CheckOut} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <Route path='/:prod_id' component={Product} />
+          {routes.map(({ exact, path, component, id }) => (
+            <Route exact={exact} path={path} component={component} key={id} />
+          ))}
         </Switch>
       </Main>
       <Footer />
