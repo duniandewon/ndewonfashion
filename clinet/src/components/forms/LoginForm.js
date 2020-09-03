@@ -39,7 +39,7 @@ const LoginForm = ({ setIsFlipped }) => {
   return (
     <form className='auth__form auth__form--login' onSubmit={onSubmit}>
       <h2>Login</h2>
-      <div className='socials'>
+      {/* <div className='socials'>
         <Link to='#!' className='social__item'>
           <i className='fab fa-facebook-f' />
         </Link>
@@ -47,7 +47,7 @@ const LoginForm = ({ setIsFlipped }) => {
           <i className='fab fa-google-plus-g' />
         </Link>
       </div>
-      <span>or use your email for login</span>
+      <span>or use your email for login</span> */}
       <input
         type='email'
         className='input'
@@ -74,7 +74,7 @@ const LoginForm = ({ setIsFlipped }) => {
           type='button'
           onClick={() => setIsFlipped(true)}
         >
-          Login here.
+          Register here.
         </button>
       </span>
     </form>

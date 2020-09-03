@@ -56,7 +56,7 @@ const RegisterForm = ({ setIsFlipped }) => {
   return (
     <form className='auth__form auth__form--register' onSubmit={onSubmit}>
       <h2>Create account</h2>
-      <div className='socials'>
+      {/* <div className='socials'>
         <Link to='#!' className='social__item'>
           <i className='fab fa-facebook-f' />
         </Link>
@@ -64,7 +64,7 @@ const RegisterForm = ({ setIsFlipped }) => {
           <i className='fab fa-google-plus-g' />
         </Link>
       </div>
-      <span>or use your email for registration</span>
+      <span>or use your email for registration</span> */}
       <input
         type='text'
         className='input'
@@ -107,7 +107,7 @@ const RegisterForm = ({ setIsFlipped }) => {
           type='button'
           onClick={() => setIsFlipped(false)}
         >
-          Register here.
+          Login here.
         </button>
       </span>
     </form>
