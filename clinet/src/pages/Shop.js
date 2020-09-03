@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { useRouteMatch, Switch, Route } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useRouteMatch, Switch, Route, useLocation } from 'react-router-dom';
 
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
@@ -17,18 +17,36 @@ import Container from 'react-bootstrap/Container';
 const Shop = () => {
   const { loadUser } = useContext(authContext);
   const { getProducts, products } = useContext(productContext);
-  let { path } = useRouteMatch();
+  const { path } = useRouteMatch();
+  const { search } = useLocation();
 
-  const prodGender = path.split('/')[1];
+  const [filtered, setFiltered] = useState([]);
+
+  const prodGender = path.slice(1).split('/')[0];
   const prodList =
     products && products.filter((product) => product.gender === prodGender);
+
+  const filterProducts = () => {
+    const searchParams = new URLSearchParams(search);
+    const price = searchParams.get('price');
+
+    if (products) {
+      const filtered = products.filter(
+        (product) =>
+          product.gender === prodGender && parseFloat(product.price) <= price
+      );
+
+      setFiltered(filtered);
+    }
+  };
 
   useEffect(() => {
     loadUser();
     getProducts();
+    filterProducts();
 
     // eslint-disable-next-line
-  }, []);
+  }, [search]);
 
   return (
     <Container fluid>
@@ -43,10 +61,14 @@ const Shop = () => {
         <Col lg={9} className='py-5'>
           <Switch>
             <Route exact path={`${path}`}>
-              <ProductList products={prodList} />
+              <ProductList
+                products={filtered.length > 0 ? filtered : prodList}
+              />
             </Route>
             <Route path={`${path}/:prod_category`}>
-              <ProductCategory />
+              <ProductCategory
+                products={filtered.length > 0 ? filtered : products}
+              />
             </Route>
           </Switch>
         </Col>
