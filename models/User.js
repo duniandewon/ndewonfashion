@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  consfirmed: {
+  confirmed: {
     type: Boolean,
     default: false,
   },
