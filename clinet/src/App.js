@@ -8,6 +8,7 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import CheckOut from './pages/CheckOut';
 import Login from './pages/Login';
+import ConfirmEmail from './pages/ConfirmEmail';
 
 import Header from './layouts/Header';
 import Main from './layouts/Main';
@@ -60,6 +61,12 @@ function App() {
       id: 'login',
       path: '/login',
       component: Login,
+      exact: false,
+    },
+    {
+      id: 'confemail',
+      path: '/confirm-email',
+      component: ConfirmEmail,
       exact: false,
     },
     {

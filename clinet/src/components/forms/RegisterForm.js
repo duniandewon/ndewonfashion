@@ -9,12 +9,13 @@ const RegisterForm = ({ setIsFlipped }) => {
 
   const [user, setUser] = useState({
     name: '',
+    username: '',
     email: '',
     password: '',
     confPassword: '',
   });
 
-  const { name, email, password, confPassword } = user;
+  const { name, username, email, password, confPassword } = user;
 
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
@@ -23,6 +24,10 @@ const RegisterForm = ({ setIsFlipped }) => {
 
     if (!name) {
       return alert('Please enter a name!');
+    }
+
+    if (!username) {
+      return alert('Please enter a username!');
     }
 
     if (!email) {
@@ -49,6 +54,7 @@ const RegisterForm = ({ setIsFlipped }) => {
   const clearForm = () =>
     setUser({
       name: '',
+      username: '',
       email: '',
       password: '',
       confPassword: '',
@@ -71,6 +77,14 @@ const RegisterForm = ({ setIsFlipped }) => {
         name='name'
         placeholder='Name'
         value={name}
+        onChange={onChange}
+      />
+      <input
+        type='text'
+        className='input'
+        name='username'
+        placeholder='User name'
+        value={username}
         onChange={onChange}
       />
       <input

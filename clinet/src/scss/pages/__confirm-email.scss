@@ -1,0 +1,21 @@
+.confirm-email {
+  max-width: 65rem;
+  margin: 10rem auto;
+  background-color: #fff;
+  line-height: 2;
+  padding: $text-xlarge;
+  border-radius: 8px;
+
+  h1 {
+    font-size: $text-large;
+    text-align: center;
+  }
+
+  a {
+    color: $secondary-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
