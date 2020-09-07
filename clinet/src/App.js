@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
+
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Contact from './pages/Contact';
@@ -26,69 +29,105 @@ function App() {
       path: '/',
       component: Home,
       exact: true,
+      restricted: false,
+      _private: false,
     },
     {
       id: 'shopWomen',
       path: '/women',
       component: Shop,
       exact: false,
+      restricted: false,
+      _private: false,
     },
     {
       id: 'shopMen',
       path: '/men',
       component: Shop,
       exact: false,
+      restricted: false,
+      _private: false,
     },
     {
       id: 'contact',
       path: '/contact',
       component: Contact,
       exact: false,
+      restricted: false,
+      _private: false,
     },
     {
       id: 'cart',
       path: '/cart',
       component: Cart,
       exact: false,
+      restricted: false,
+      _private: false,
     },
     {
       id: 'checkout',
       path: '/checkout',
       component: CheckOut,
       exact: false,
+      restricted: false,
+      _private: true,
     },
     {
       id: 'login',
       path: '/login',
       component: Login,
       exact: false,
+      restricted: true,
+      _private: false,
     },
     {
       id: 'confemail',
       path: '/confirm-email',
       component: ConfirmEmail,
       exact: false,
+      restricted: true,
+      _private: false,
     },
     {
       id: 'product',
       path: '/:prod_id',
       component: Product,
       exact: false,
+      restricted: false,
+      _private: false,
     },
   ];
+
+  const pages = () => (
+    <Switch>
+      {routes.map(({ exact, path, component, id, restricted, _private }) =>
+        _private ? (
+          <PrivateRoute
+            exact={exact}
+            path={path}
+            restricted={restricted}
+            component={component}
+            key={id}
+          />
+        ) : (
+          <PublicRoute
+            exact={exact}
+            path={path}
+            restricted={restricted}
+            component={component}
+            key={id}
+          />
+        )
+      )}
+    </Switch>
+  );
 
   return (
     <Fragment>
       <Header />
       <MainNav />
       <LoadingSpinner />
-      <Main>
-        <Switch>
-          {routes.map(({ exact, path, component, id }) => (
-            <Route exact={exact} path={path} component={component} key={id} />
-          ))}
-        </Switch>
-      </Main>
+      <Main>{pages()}</Main>
       <Footer />
     </Fragment>
   );
