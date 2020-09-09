@@ -7,7 +7,7 @@ import { cartContext } from '../../context/cart/CartState';
 import NavDropdown from '../navigations/NavDropdown';
 
 const TopNav = () => {
-  const { user } = useContext(authContext);
+  const { user, isAuthenticated } = useContext(authContext);
   const { amount } = useContext(cartContext);
 
   const dropdown = () => (
@@ -28,11 +28,11 @@ const TopNav = () => {
 
   return (
     <ul className='top-nav'>
-      {user ? (
+      {user && isAuthenticated ? (
         <li className='nav__item dropdown'>
           <Link to='/profile'>
             <i className='fas fa-user'></i>
-            <span>account</span>
+            <span>{user.username}</span>
           </Link>
           {dropdown()}
         </li>
