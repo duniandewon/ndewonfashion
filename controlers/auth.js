@@ -3,8 +3,8 @@ const passport = require('passport');
 
 module.exports = {
   getloggedInUser: async (req, res) => {
-    const { name, email } = await User.findById(req.session.passport.user);
-    return res.json({ name, email });
+    const { name, username, email } = await User.findById(req.session.passport.user);
+    return res.json({ name, username, email });
   },
 
   loginUser: async (req, res, next) => {
