@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { authContext } from '../../context/auth/AuthState';
+import { useEffect } from 'react';
 
 const RegisterForm = ({ setIsFlipped }) => {
-  const { registerUser } = useContext(authContext);
+  const { registerUser, user, loadUser } = useContext(authContext);
   const history = useHistory();
 
-  const [user, setUser] = useState({
+  const [newUser, setNewUser] = useState({
     name: '',
     username: '',
     email: '',
@@ -15,9 +16,10 @@ const RegisterForm = ({ setIsFlipped }) => {
     confPassword: '',
   });
 
-  const { name, username, email, password, confPassword } = user;
+  const { name, username, email, password, confPassword } = newUser;
 
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,13 +48,20 @@ const RegisterForm = ({ setIsFlipped }) => {
       return alert("Passwords don't match");
     }
 
-    registerUser(user);
-    clearForm();
-    history.push('/confirm-email');
+    registerUser(newUser);
   };
 
+  useEffect(() => {
+    loadUser();
+
+    if (user) {
+      clearForm();
+      history.push('/confirm-email');
+    }
+  }, [user]);
+
   const clearForm = () =>
-    setUser({
+    setNewUser({
       name: '',
       username: '',
       email: '',

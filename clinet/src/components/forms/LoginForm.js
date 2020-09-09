@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 
 import { authContext } from '../../context/auth/AuthState';
 
 const LoginForm = ({ setIsFlipped }) => {
-  const { loginUser } = useContext(authContext);
-  const history = useHistory();
+  const { loginUser, loadUser } = useContext(authContext);
 
   const [user, setUser] = useState({
     email: '',
@@ -27,7 +25,7 @@ const LoginForm = ({ setIsFlipped }) => {
 
     loginUser(user);
     clearForm();
-    history.goBack();
+    loadUser();
   };
 
   const clearForm = () =>

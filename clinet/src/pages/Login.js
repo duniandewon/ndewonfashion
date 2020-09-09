@@ -1,21 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { authContext } from '../context/auth/AuthState';
+import React, { useState } from 'react';
 
 import LoginForm from '../components/forms/LoginForm';
 import RegisterForm from '../components/forms/RegisterForm';
 
-const Login = ({ history }) => {
+const Login = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const { isAuthenticated, error, loadUser } = useContext(authContext);
-
-  useEffect(() => {
-    loadUser();
-    if (isAuthenticated && !error) {
-      history.goBack();
-    }
-
-    // eslint-disable-next-line
-  }, [isAuthenticated, history]);
 
   return (
     <div className='auth__flip'>
