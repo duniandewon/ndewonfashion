@@ -3,9 +3,12 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   registerUser: async (req, res) => {
-    const { name, email, password, isAdmin } = req.body;
+    const { name, username, email, password, isAdmin } = req.body;
 
     if (!name) return res.status(400).json({ msg: 'Please enter a name' });
+
+    if (!username)
+      return res.status(400).json({ msg: 'Please enter a username' });
 
     if (!email) return res.status(400).json({ msg: 'Please enter a email' });
 
@@ -23,6 +26,7 @@ module.exports = {
 
       user = new User({
         name,
+        username,
         email,
         isAdmin,
       });
@@ -35,8 +39,10 @@ module.exports = {
 
       const newUser = {
         name,
+        username,
         email,
       };
+
       return res.json(newUser);
     } catch (err) {
       console.error(err.message);
