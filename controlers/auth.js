@@ -3,7 +3,9 @@ const passport = require('passport');
 
 module.exports = {
   getloggedInUser: async (req, res) => {
-    const { name, username, email } = await User.findById(req.session.passport.user);
+    const { name, username, email } = await User.findById(
+      req.session.passport.user
+    );
     return res.json({ name, username, email });
   },
 
@@ -25,10 +27,16 @@ module.exports = {
         const logedinUser = {
           email: user.email,
           name: user.name,
+          username: user.username,
         };
 
         return res.json(logedinUser);
       });
     })(req, res, next);
+  },
+
+  logoutUser: (req, res) => {
+    req.logout();
+    return res.json({ msg: 'Logged out successfuly!' });
   },
 };

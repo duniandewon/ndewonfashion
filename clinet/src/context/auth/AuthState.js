@@ -10,6 +10,7 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   SET_LOADING,
+  LOGOUT,
 } from '../types';
 
 export const authContext = createContext();
@@ -67,6 +68,17 @@ export const AuthState = ({ children }) => {
     }
   };
 
+  const logoutUser = async () => {
+    try {
+      setLoading();
+      const res = await axios.get('/api/auth/logout');
+      console.log(res.data);
+      dispatch({ type: LOGOUT });
+    } catch (err) {
+      console.log(err.response.data.msg);
+    }
+  };
+
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
@@ -79,6 +91,7 @@ export const AuthState = ({ children }) => {
         loadUser,
         registerUser,
         loginUser,
+        logoutUser,
         setLoading,
       }}
     >

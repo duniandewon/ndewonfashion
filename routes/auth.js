@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { isAuth } = require('../middlewares/authMiddleware');
-const { loginUser, getloggedInUser } = require('../controlers/auth');
 const { asyncErrorHandler } = require('../middlewares/asyncErrorHandler');
+const {
+  loginUser,
+  getloggedInUser,
+  logoutUser,
+} = require('../controlers/auth');
 
 /**
  * @route   GET /api/auth
@@ -17,6 +21,15 @@ router.get('/', isAuth, asyncErrorHandler(getloggedInUser));
  * @desc    Login the user
  * @access  Public
  */
+
 router.post('/', loginUser);
+
+/**
+ * @route   GET /api/auth/logout
+ * @desc    Logout user
+ * @access  Private
+ */
+
+router.get('/logout', isAuth, logoutUser);
 
 module.exports = router;

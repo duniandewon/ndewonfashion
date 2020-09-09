@@ -7,7 +7,7 @@ import { cartContext } from '../../context/cart/CartState';
 import NavDropdown from '../navigations/NavDropdown';
 
 const TopNav = () => {
-  const { user, isAuthenticated } = useContext(authContext);
+  const { user, isAuthenticated, logoutUser } = useContext(authContext);
   const { amount } = useContext(cartContext);
 
   const dropdown = () => (
@@ -20,7 +20,9 @@ const TopNav = () => {
           <Link to='/orders'>Orders</Link>
         </li>
         <li className='dropdown__item'>
-          <Link to='/logout'>Logout</Link>
+          <Link to='#!' onClick={() => logoutUser()}>
+            Logout
+          </Link>
         </li>
       </ul>
     </NavDropdown>
