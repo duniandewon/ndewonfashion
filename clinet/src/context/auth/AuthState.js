@@ -45,8 +45,6 @@ export const AuthState = ({ children }) => {
     try {
       const res = await axios.post('api/users', formData, config);
 
-      console.log(res.data);
-
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     } catch (error) {
       dispatch({ type: REGISTER_FAIL, payload: error.response.data.msg });
