@@ -1,4 +1,10 @@
 .page {
+  &__header {
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   &__main {
     display: flex;
     flex-direction: column;

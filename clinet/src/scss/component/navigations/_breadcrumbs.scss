@@ -1,0 +1,16 @@
+.breadcrumbs {
+  display: flex;
+
+  &__item {
+    text-transform: uppercase;
+
+    a:hover {
+      color: $main-color;
+    }
+
+    &:not(:last-child)::after {
+      content: '/';
+      margin: 0 1rem;
+    }
+  }
+}

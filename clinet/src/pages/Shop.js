@@ -9,6 +9,7 @@ import ProductCategory from './ProductCategory';
 import ProductList from '../components/products/ProductList';
 
 import Sidebar from '../layouts/Sidebar';
+import PageHeader from '../layouts/PageHeader';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -50,6 +51,11 @@ const Shop = () => {
 
   return (
     <Container fluid>
+      <Row>
+        <Col>
+          <PageHeader />
+        </Col>
+      </Row>
       <Row>
         <Col
           xs={{ order: 'last' }}

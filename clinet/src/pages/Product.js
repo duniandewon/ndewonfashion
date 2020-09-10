@@ -7,6 +7,7 @@ import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
 
 import Section from '../layouts/Section';
+import PageHeader from '../layouts/PageHeader';
 import Carousel from '../components/slides/Carousel';
 
 import ProductDetail from '../components/products/ProductDetail';
@@ -37,11 +38,7 @@ const Product = () => {
   return (
     product && (
       <Container>
-        <header className='page_header my-5'>
-          <Link to={`/${product.gender}/${product.category}`}>
-            &#60;&#60;&#60; go back to categories
-          </Link>
-        </header>
+        <PageHeader />
         <ProductDetail product={product} />
         <Section title='you might also like'>
           <Carousel />
