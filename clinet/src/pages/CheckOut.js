@@ -37,7 +37,7 @@ const CheckOut = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className='my-5'>
         <Col
           xs={{ order: 'last', span: 12 }}
           lg={{ order: 'first', span: 8 }}
