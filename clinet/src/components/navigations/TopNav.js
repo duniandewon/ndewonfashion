@@ -20,7 +20,7 @@ const TopNav = () => {
           <Link to='/orders'>Orders</Link>
         </li>
         <li className='dropdown__item'>
-          <Link to='#!' onClick={() => logoutUser()}>
+          <Link to='' onClick={() => logoutUser()}>
             Logout
           </Link>
         </li>
