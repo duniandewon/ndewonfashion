@@ -32,7 +32,9 @@ const Breadcrumbs = () => {
   return (
     <ul className='breadcrumbs'>
       {paths.map((path) => (
-        <li className='breadcrumbs__item'>{path.content}</li>
+        <li className='breadcrumbs__item' key={path.id}>
+          {path.content}
+        </li>
       ))}
     </ul>
   );
