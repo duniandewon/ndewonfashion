@@ -1,0 +1,41 @@
+.drawer {
+  position: fixed;
+  background-color: #fff;
+  height: 100%;
+  top: 13.2rem;
+  width: 25rem;
+  left: 0;
+  transform: translateX(-100%);
+  z-index: 2;
+  transition: transform 300ms ease-out;
+  color: $black;
+  padding-top: 5rem;
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0.4rem 1rem;
+    border: none;
+    outline: none;
+    font-size: $text-medium;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &__link {
+    display: block;
+    padding: 1rem 2rem;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}

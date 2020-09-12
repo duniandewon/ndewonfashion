@@ -16,8 +16,7 @@ import ConfirmEmail from './pages/ConfirmEmail';
 import Header from './layouts/Header';
 import Main from './layouts/Main';
 import Footer from './layouts/Footer';
-
-import MainNav from './components/navigations/MainNav';
+import Navbar from './layouts/Navbar';
 import LoadingSpinner from './layouts/LoadingSpinner';
 
 import './scss/styles.scss';
@@ -125,7 +124,7 @@ function App() {
   return (
     <Fragment>
       <Header />
-      <MainNav />
+      <Navbar />
       <LoadingSpinner />
       <Main>{pages()}</Main>
       <Footer />
