@@ -41,7 +41,7 @@ const ProductDetail = ({ product }) => {
 
   useEffect(() => {
     getSubtotals();
-  }, [items]);
+  }, [items, getSubtotals]);
 
   return (
     <main className='page__main mb-5'>

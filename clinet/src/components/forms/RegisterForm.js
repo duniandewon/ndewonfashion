@@ -58,7 +58,7 @@ const RegisterForm = ({ setIsFlipped }) => {
       clearForm();
       history.push('/confirm-email');
     }
-  }, [user]);
+  }, [user, history, loadUser]);
 
   const clearForm = () =>
     setNewUser({
