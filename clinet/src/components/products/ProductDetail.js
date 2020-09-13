@@ -41,7 +41,9 @@ const ProductDetail = ({ product }) => {
 
   useEffect(() => {
     getSubtotals();
-  }, [items, getSubtotals]);
+
+    // eslint-disable-next-line
+  }, [items]);
 
   return (
     <main className='page__main mb-5'>

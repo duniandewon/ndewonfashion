@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 
@@ -33,7 +33,7 @@ const Product = () => {
     }
 
     // eslint-disable-next-line
-  }, [products]);
+  }, [products, prod_id]);
 
   return (
     product && (

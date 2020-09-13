@@ -1,34 +1,75 @@
-.search-box {
+.search {
   position: relative;
-  width: 100%;
 
-  @media screen and (max-width: 991px) {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  input,
-  button {
-    font-size: $text-medium;
-  }
-
-  input {
+  &__box {
+    position: relative;
     width: 100%;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 5rem;
-    outline: none;
-    background-color: $white;
-    font-weight: 300;
+
+    @media screen and (max-width: 991px) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    input,
+    button {
+      font-size: $text-medium;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5rem;
+      outline: none;
+      background-color: $white;
+      font-weight: 300;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
   }
 
-  button {
-    background-color: transparent;
-    border: none;
+  &__results {
+    width: 100%;
     position: absolute;
-    top: 50%;
-    right: 2rem;
-    transform: translateY(-50%);
-    cursor: pointer;
+    background-color: #fff;
+    // padding: 2rem;
+    top: 5.3rem;
+    z-index: 2;
+  }
+
+  &__item + &__item {
+    margin-top: 1.2rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+
+    &:hover {
+      background-color: darken($color: $white, $amount: 15%);
+    }
+  }
+
+  &__image {
+    max-width: 4rem;
+    margin-right: 1rem;
+    display: none;
+
+    @media screen and (min-width: 992px) {
+      display: block;
+    }
+  }
+
+  &__name {
+    flex-grow: 1;
   }
 }

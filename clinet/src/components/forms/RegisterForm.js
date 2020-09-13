@@ -58,7 +58,8 @@ const RegisterForm = ({ setIsFlipped }) => {
       clearForm();
       history.push('/confirm-email');
     }
-  }, [user, history, loadUser]);
+    // eslint-disable-next-line
+  }, [user]);
 
   const clearForm = () =>
     setNewUser({
