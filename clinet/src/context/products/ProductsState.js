@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import productsReducer from './productsReducer';
 
-import { SET_LOADING, GET_PRODUCTS_SUCCESS, GET_PRODUCT } from '../types';
+import { SET_LOADING, GET_PRODUCTS_SUCCESS } from '../types';
 
 export const productContext = createContext();
 
@@ -31,9 +31,6 @@ export const ProductsState = ({ children }) => {
     }
   };
 
-  const getProduct = (productId) =>
-    dispatch({ type: GET_PRODUCT, payload: productId });
-
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
@@ -44,7 +41,6 @@ export const ProductsState = ({ children }) => {
         loading: state.loading,
         error: state.error,
         getProducts,
-        getProduct,
         setLoading,
       }}
     >

@@ -1,24 +1,25 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 
 import { authContext } from '../context/auth/AuthState';
 import { productContext } from '../context/products/ProductsState';
+import { cartContext } from '../context/cart/CartState';
 
 import Section from '../layouts/Section';
 import PageHeader from '../layouts/PageHeader';
 import Carousel from '../components/slides/Carousel';
-
 import ProductDetail from '../components/products/ProductDetail';
 
 const Product = () => {
   const { prod_id } = useParams();
 
   const { loadUser } = useContext(authContext);
-  const { products, product, getProducts, getProduct } = useContext(
-    productContext
-  );
+  const { products, getProducts } = useContext(productContext);
+  const { items, getSubtotals } = useContext(cartContext);
+
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     loadUser();
@@ -28,11 +29,17 @@ const Product = () => {
   }, []);
 
   useEffect(() => {
-    if (products) {
-      getProduct(prod_id);
-    }
+    getSubtotals();
 
     // eslint-disable-next-line
+  }, [items]);
+
+  useEffect(() => {
+    if (products) {
+      const prod = products.find((product) => product._id === prod_id);
+
+      setProduct(prod);
+    }
   }, [products, prod_id]);
 
   return (

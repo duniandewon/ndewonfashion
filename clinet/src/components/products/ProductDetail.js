@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { cartContext } from '../../context/cart/CartState';
 
@@ -9,9 +9,7 @@ const ProductDetail = ({ product }) => {
   const [chosenSize, setChosenSize] = useState('');
   const [count, setCount] = useState(1);
 
-  const { items, addToCart, toggleAmount, getSubtotals } = useContext(
-    cartContext
-  );
+  const { items, addToCart, toggleAmount } = useContext(cartContext);
 
   const ToggleCount = (e) => {
     if (e.target.textContent === '-' && count > 1) {
@@ -38,12 +36,6 @@ const ProductDetail = ({ product }) => {
 
     return addToCart({ ...product, count, chosenSize });
   };
-
-  useEffect(() => {
-    getSubtotals();
-
-    // eslint-disable-next-line
-  }, [items]);
 
   return (
     <main className='page__main mb-5'>

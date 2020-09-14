@@ -1,9 +1,4 @@
-import {
-  GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_FAIL,
-  SET_LOADING,
-  GET_PRODUCT,
-} from '../types';
+import { GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAIL, SET_LOADING } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -20,15 +15,6 @@ export default (state, action) => {
         ...state,
         products: null,
         error: action.payload,
-        loading: false,
-      };
-
-    case GET_PRODUCT:
-      return {
-        ...state,
-        product: state.products.find(
-          (product) => product._id === action.payload
-        ),
         loading: false,
       };
 
