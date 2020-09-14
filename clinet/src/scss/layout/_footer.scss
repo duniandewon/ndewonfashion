@@ -1,0 +1,35 @@
+.footer {
+  background-color: $black;
+  color: #fff;
+  padding: $text-xlarge 0;
+
+  h3 {
+    font-size: $text-large;
+    margin-bottom: 0.8rem;
+  }
+
+  .about {
+    h3,
+    a {
+      font-size: $text-xlarge;
+    }
+
+    p {
+      color: #cacaca;
+    }
+
+    a {
+      margin-right: $text-large;
+    }
+
+    .social-links {
+      margin-top: 1.2rem;
+    }
+  }
+
+  .links {
+    li {
+      margin-bottom: $text-small;
+    }
+  }
+}
