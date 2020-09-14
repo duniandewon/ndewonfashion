@@ -22,7 +22,7 @@ const SearchBox = () => {
         );
     }
     setResults(filter);
-  }, [search]);
+  }, [search, products]);
 
   return (
     <div className='search'>
