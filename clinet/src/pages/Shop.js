@@ -27,27 +27,30 @@ const Shop = () => {
   const prodList =
     products && products.filter((product) => product.gender === prodGender);
 
-  const filterProducts = () => {
-    const searchParams = new URLSearchParams(search);
-    const price = searchParams.get('price');
-
-    if (products) {
-      const filtered = products.filter(
-        (product) =>
-          product.gender === prodGender && parseFloat(product.price) <= price
-      );
-
-      setFiltered(filtered);
-    }
-  };
-
   useEffect(() => {
     loadUser();
     getProducts();
-    filterProducts();
 
     // eslint-disable-next-line
-  }, [search]);
+  }, []);
+
+  useEffect(() => {
+    const filterProducts = () => {
+      const searchParams = new URLSearchParams(search);
+      const price = searchParams.get('price');
+
+      if (products) {
+        const filtered = products.filter(
+          (product) =>
+            product.gender === prodGender && parseFloat(product.price) <= price
+        );
+
+        setFiltered(filtered);
+      }
+    };
+
+    filterProducts();
+  }, [search, products, prodGender]);
 
   return (
     <Container fluid>
